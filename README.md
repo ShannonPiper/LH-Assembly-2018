@@ -56,7 +56,8 @@ for o in `cat hc_negR1.list`; do for l in `cat hc_negR2.list`; do for t in `cat 
 
 ## Apply loop to bbmap/bbduk for Hancock-1
 
-```for o in `cat hc_negR1.list`; do for l in `cat hc_negR2.list`; do for t in `cat t2.list`; do if [[ $o == Hancock-1-Neg_S2_"$t"_R1_001.fastq.gz ]] && [[ $l == Hancock-1-Neg_S2_"$t"_R2_001.fastq.gz ]]; then /home/groves/Desktop/bbmap/bbduk.sh -Xmx23g in1=/home/groves/Desktop/LH-Assembly/Raw/$o in2=/home/groves/Desktop/LH-Assembly/Raw/$l out1=/home/groves/Desktop/LH-Assembly/cleaned/hc-1-Neg_S2_"$t"_R1_001_clean.fq out2=home/groves/Desktop/LH-Assembly/cleaned/hc-1-Neg_S2_"$t"_R2_001_clean.fq  minlen=25 qtrim=rl trimq=6 ktrim=r k=23 mink=11 hdist=1 tpe tbo;fi; done; done; done
+```
+for o in `cat hc_negR1.list`; do for l in `cat hc_negR2.list`; do for t in `cat t2.list`; do if [[ $o == Hancock-1-Neg_S2_"$t"_R1_001.fastq.gz ]] && [[ $l == Hancock-1-Neg_S2_"$t"_R2_001.fastq.gz ]]; then /home/groves/Desktop/bbmap/bbduk.sh -Xmx23g in1=/home/groves/Desktop/LH-Assembly/Raw/$o in2=/home/groves/Desktop/LH-Assembly/Raw/$l out1=/home/groves/Desktop/LH-Assembly/cleaned/hc-1-Neg_S2_"$t"_R1_001_clean.fq out2=home/groves/Desktop/LH-Assembly/cleaned/hc-1-Neg_S2_"$t"_R2_001_clean.fq  minlen=25 qtrim=rl trimq=6 ktrim=r k=23 mink=11 hdist=1 tpe tbo;fi; done; done; done
 ```
 
 
