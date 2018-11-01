@@ -74,6 +74,8 @@ Re-ran lanes 1-3 because R2 output was not put in correct place. marked as 'clea
 
 # SPAdes assembly
 
+* Run on SPAdes genome assembler v3.11.1 (http://spades.bioinf.spbau.ru/release3.11.1/manual.html)
+
 ## Zach's script
 ```
 ./spades.py --pe1-1 /var/lib/condor/execute/slot1/dir_3785419/SPAdes-3.9.0-Linux/bin/CP4_R1_CLEAN.fq --pe1-2 /var/lib/condor/execute/slot1/dir_3785419/SPAdes-3.9.0-Linux/bin/CP4_R2_CLEAN.fq -t 32 -k 37,59,71,85,97  -o /var/lib/condor/execute/slot1/dir_3785419/SPAdes-3.9.0-Linux/bin/CP4_spades
