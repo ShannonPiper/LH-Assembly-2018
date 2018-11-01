@@ -67,7 +67,8 @@ for o in `cat hc_negR1.list`; do for l in `cat hc_negR2.list`; do for t in `cat 
 ```
 
 Re-ran lanes 1-3 because R2 output was not put in correct place. marked as 'clean2.fq'. 1 didn't run again so re-ran individually with new path (not loop)
-```/home/groves/Desktop/bbmap/bbduk.sh -Xmx23g in1=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/HC-5/Hancock-1-Neg_S2_L001_R1_001.fastq.gz in2=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/HC-5/Hancock-1-Neg_S2_L001_R2_001.fastq.gz out1=/media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L001_R1_001_clean3.fq out2=/media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L001_R2_001_clean3.fq  minlen=25 qtrim=rl trimq=6 ktrim=r k=23 mink=11 hdist=1 tpe tbo
+```
+/home/groves/Desktop/bbmap/bbduk.sh -Xmx23g in1=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/HC-5/Hancock-1-Neg_S2_L001_R1_001.fastq.gz in2=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/HC-5/Hancock-1-Neg_S2_L001_R2_001.fastq.gz out1=/media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L001_R1_001_clean3.fq out2=/media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L001_R2_001_clean3.fq  minlen=25 qtrim=rl trimq=6 ktrim=r k=23 mink=11 hdist=1 tpe tbo
 ```
 
 
