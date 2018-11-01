@@ -66,4 +66,25 @@ Run from `/media/groves/Data/LH-Assembly/Raw`
 for o in `cat hc_negR1.list`; do for l in `cat hc_negR2.list`; do for t in `cat t2.list`; do if [[ $o == Hancock-1-Neg_S2_"$t"_R1_001.fastq.gz ]] && [[ $l == Hancock-1-Neg_S2_"$t"_R2_001.fastq.gz ]]; then /home/groves/Desktop/bbmap/bbduk.sh -Xmx23g in1=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/HC-5/$o in2=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/HC-5/$l out1=/media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_"$t"_R1_001_clean.fq out2=/media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_"$t"_R2_001_clean.fq  minlen=25 qtrim=rl trimq=6 ktrim=r k=23 mink=11 hdist=1 tpe tbo;fi; done; done; done
 ```
 
-Re-ran lanes 1-3 because R2 output was not 
+Re-ran lanes 1-3 because R2 output was not put in correct place.
+
+
+# SPAdes assembly
+
+## Zach's script
+```
+./spades.py --pe1-1 /var/lib/condor/execute/slot1/dir_3785419/SPAdes-3.9.0-Linux/bin/CP4_R1_CLEAN.fq --pe1-2 /var/lib/condor/execute/slot1/dir_3785419/SPAdes-3.9.0-Linux/bin/CP4_R2_CLEAN.fq -t 32 -k 37,59,71,85,97  -o /var/lib/condor/execute/slot1/dir_3785419/SPAdes-3.9.0-Linux/bin/CP4_spades
+```
+
+## First attempt at hancock-1-neg
+
+* used SPAdes suggestion for Illumina 2x150 reads for kmers: 21,33,55,77
+
+* started on 11/1/2018
+
+script:
+```
+spades.py --pe1-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L001_R1_001_clean2.fq --pe1-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L001_R2_001_clean2.fq --pe2-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L002_R1_001_clean2.fq --pe2-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L002_R2_001_clean2.fq --pe3-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L003_R1_001_clean2.fq --pe3-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L003_R2_001_clean2.fq --pe4-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L004_R1_001_clean.fq --pe4-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L004_R2_001_clean.fq --pe5-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L005_R1_001_clean.fq --pe5-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L005_R2_001_clean.fq --pe6-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L006_R1_001_clean.fq --pe6-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L006_R2_001_clean.fq --pe7-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L007_R1_001_clean.fq --pe7-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L007_R2_001_clean.fq --pe8-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L008_R1_001_clean.fq --pe8-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L008_R2_001_clean.fq  -t 32 -k 21,33,55,77  -o /media/groves/Data/LH-Assembly/spades-assembly-output/hc-1-neg-1
+```
+
+
