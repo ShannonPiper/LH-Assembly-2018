@@ -138,4 +138,4 @@ Logged from file support.py, line 272
 ```
 
 Change temporary directory?
-`/media/groves/Data/tmp-HC1-trial'
+`/media/groves/Data/tmp-HC1-trial`
