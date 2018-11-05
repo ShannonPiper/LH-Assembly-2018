@@ -137,5 +137,4 @@ IOError: [Errno 28] No space left on device
 Logged from file support.py, line 272
 ```
 
-Change temporary directory?
-`/media/groves/Data/tmp-HC1-trial`
+Got rid of deleted files and tried again? Emailed SPAdes with issue.
