@@ -160,4 +160,52 @@ Another attempt after seeing only ~29800 Gb of ram available. Got rid of core li
 ```
 spades.py --pe1-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L001_R1_001_clean2.fq --pe1-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L001_R2_001_clean2.fq --pe2-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L002_R1_001_clean2.fq --pe2-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L002_R2_001_clean2.fq --pe3-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L003_R1_001_clean2.fq --pe3-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L003_R2_001_clean2.fq --pe4-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L004_R1_001_clean.fq --pe4-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L004_R2_001_clean.fq --pe5-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L005_R1_001_clean.fq --pe5-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L005_R2_001_clean.fq --pe6-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L006_R1_001_clean.fq --pe6-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L006_R2_001_clean.fq --pe7-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L007_R1_001_clean.fq --pe7-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L007_R2_001_clean.fq --pe8-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L008_R1_001_clean.fq --pe8-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L008_R2_001_clean.fq -m 28 -k 21,33,55,77 -o /media/groves/Data/LH-Assembly/spades-assembly-output/hc-1-neg-1
 ```
+## 11/29/2018
+# Submit job of top 3 reads on CHTC
+
+Executable:
+```
+#!/bin/bash
+
+#untar SPAdes and data sets
+tar -xzf SPAdes-3.9.0-Linux.tgz
+tar -xzf top_reads.tgz
+
+cd SPAdes-3.9.0-Linux/bin/
+
+#export PATH=$(pwd)/bin:$PATH
+
+spades.py --pe1-1 ../../top_reads/hc-1-Neg_S2_L002_R1_001_clean2.fq --pe1-2 ../../top_reads/hc-1-Neg_S2_L002_R2_001_clean2.fq --pe2-1 ../../top_reads/hc-1-Neg_S2_L004_R1_001_clean.fq --pe2-2 ../../top_reads/hc-1-Neg_S2_L004_R2_001_clean.fq --pe3-1 ../../top_reads/hc-1-Neg_S2_L005_R1_001_clean.fq --pe3-2 ../../top_reads/hc-1-Neg_S2_L005_R2_001_clean.fq  -t 16 -k 21,33,55,77  -o topthree-spades
+
+tar -czf topthree-spades.tgz topthree-spades
+cp topthree-spades.tgz /mnt/gluster/sbpiper/
+
+exit
+```
+
+Submission:
+```
+universe = vanilla
+executable = spades-topreads.sh
+
+log = spades-topreads.log
+error = spades-topreads.err
+output = spades-topreads.out
+
+request_memory = 164 GB
+request_disk = 75 GB
+
+request_cpus = 16
+
+transfer_input_files    = SPAdes-3.9.0-Linux.tgz, /mnt/gluster/sbpiper/top_reads.tgz
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+requirements            = (Target.HasGluster == true)
+
+Getenv                  = TRUE
+
+
+queue
+```
 
