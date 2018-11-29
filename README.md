@@ -211,3 +211,9 @@ Getenv                  = TRUE
 queue
 ```
 
+Condor commands to note:
+
+* Submit job: `condor_submit spades-topreads.sub`
+* Check job status: `condor_q`
+* Uploading tar .tgz files to Gluster: `scp top_reads.tgz sbpiper@submit-1.chtc.wisc.edu:/mnt/gluster/sbpiper/`
+* logging on to CHTC: `ssh sbpiper@submit-1.chtc.wisc.edu`
