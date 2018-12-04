@@ -227,3 +227,28 @@ spades.py --pe1-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L002_R1_001
 ```
 * Set new memory limit to 60
 * Set core limit to 16
+
+FAILED
+
+# New attempt on CHTC
+* files in bash executable were named wrong, needed to take off the 2 on clean2.
+```
+#!/bin/bash
+
+#untar SPAdes and data sets
+tar -xzf SPAdes-3.9.0-Linux.tgz
+tar -xzf top_reads.tgz
+
+cd SPAdes-3.9.0-Linux/bin/
+
+pwd
+
+#export PATH=$(pwd)/bin:$PATH
+
+./spades.py --pe1-1 ../../top_reads/hc-1-Neg_S2_L002_R1_001_clean.fq --pe1-2 ../../top_reads/hc-1-Neg_S2_L002_R2_001_clean.fq --pe2-1 ../../top_reads/hc-1-Neg_S2_L004_R1_001_clean.fq --pe2-2 ../../top_reads/hc-1-Neg_S2_L004_R2_001_clean.fq --pe3-1 ../../top_reads/hc-1-Neg_S2_L005_R1_001_clean.fq --pe3-2 ../../top_reads/hc-1-Neg_S2_L005_R2_001_clean.fq  -t 16 -k 21,33,55,77  -o topthree-spades
+
+tar -czf topthree-spades.tgz topthree-spades
+cp topthree-spades.tgz /mnt/gluster/sbpiper/
+
+exit
+```
