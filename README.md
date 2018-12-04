@@ -217,3 +217,13 @@ Condor commands to note:
 * Check job status: `condor_q`
 * Uploading tar .tgz files to Gluster: `scp top_reads.tgz sbpiper@submit-1.chtc.wisc.edu:/mnt/gluster/sbpiper/`
 * logging on to CHTC: `ssh sbpiper@submit-1.chtc.wisc.edu`
+
+
+## 12/4/2018
+# Local Attempt after doubling RAM to 64GB
+## Running only lane 2 as test
+```
+spades.py --pe1-1 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L002_R1_001_clean.fq --pe1-2 /media/groves/Data/LH-Assembly/cleaned/hc-1-Neg_S2_L002_R2_001_clean.fq -t 16 -m 60 -k 21,33,55,77 -o /media/groves/Data/LH-Assembly/spades-assembly-output/hc-1-neg-1-lane2
+```
+* Set new memory limit to 60
+* Set core limit to 16
