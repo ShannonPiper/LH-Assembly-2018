@@ -281,3 +281,54 @@ Terminated:
 
 == Error ==  system call for: "['/var/lib/condor/execute/slot1/dir_103170/SPAdes-3.9.0-Linux/bin/hammer', '/var/lib/condor/execute/slot1/dir_103170/SPAdes-3.9.0-Linux/bin/topthree-spades/corrected/configs/config.info']" finished abnormally, err code: -6
 ```
+emailed CHTC:
+
+# New Run 12/18/2018
+* Removed 2 lanes, only running lane 2
+* Increased disk allocation request
+Executable:
+```
+#!/bin/bash
+
+#untar SPAdes and data sets
+tar -xzf SPAdes-3.9.0-Linux.tgz
+tar -xzf top_reads.tgz
+
+cd SPAdes-3.9.0-Linux/bin/
+
+pwd
+
+#export PATH=$(pwd)/bin:$PATH
+
+./spades.py --pe1-1 ../../top_reads/hc-1-Neg_S2_L002_R1_001_clean.fq --pe1-2 ../../top_reads/hc-1-Neg_S2_L002_R2_001_clean.fq -t 16 -k 21,33,55,77 -o topthree-spades
+
+tar -czf topthree-spades.tgz topthree-spades
+cp topthree-spades.tgz /mnt/gluster/sbpiper/
+
+exit
+```
+Submit:
+```
+universe = vanilla
+executable = spades-topreads.sh
+
+log = spades-topreads.log
+error = spades-topreads.err
+output = spades-topreads.out
+
+request_memory = 200 GB
+request_disk = 125 GB
+
+request_cpus = 16
+
+transfer_input_files    = SPAdes-3.9.0-Linux.tgz, /mnt/gluster/sbpiper/top_reads.tgz
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+requirements            = (Target.HasGluster == true)
+
+Getenv                  = TRUE
+
+
+queue
+```
