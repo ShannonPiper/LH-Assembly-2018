@@ -252,3 +252,32 @@ cp topthree-spades.tgz /mnt/gluster/sbpiper/
 
 exit
 ```
+# Attempt on CHTC submitted 12/06/2018
+Terminated:
+.log:
+```
+...
+005 (17220.000.000) 12/10 19:31:53 Job terminated.
+        (1) Normal termination (return value 0)
+                Usr 1 20:49:39, Sys 0 00:56:18  -  Run Remote Usage
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+                Usr 1 20:49:39, Sys 0 00:56:18  -  Total Remote Usage
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+        9935  -  Run Bytes Sent By Job
+        22170167296  -  Run Bytes Received By Job
+        9935  -  Total Bytes Sent By Job
+        22170167296  -  Total Bytes Received By Job
+        Partitionable Resources :        Usage  Request Allocated
+           Cpus                 :         1.00       16        16
+           Disk (KB)            : 118864152    78643200  79926255
+           Ioheavy              :                               0
+           Memory (MB)          :    177342      204800    204800
+```
+.out:
+```
+  5:02:36.115    35G / 172G  INFO   K-mer Counting           (kmer_data.cpp             : 379)   Collecting K-mer information, this takes a while.
+<jemalloc>: Error in malloc(): out of memory. Requested: 108917280192, active: 37916508160
+
+
+== Error ==  system call for: "['/var/lib/condor/execute/slot1/dir_103170/SPAdes-3.9.0-Linux/bin/hammer', '/var/lib/condor/execute/slot1/dir_103170/SPAdes-3.9.0-Linux/bin/topthree-spades/corrected/configs/config.info']" finished abnormally, err code: -6
+```
