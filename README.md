@@ -335,3 +335,51 @@ queue
 ## SUCCESS!
 * Might still need to allocate more disk space next time.
 * Downloaded from gluster to local computer
+
+# Run again with lane 4 12/20/2018
+Submit:
+```
+universe = vanilla
+executable = spades-topreads.sh
+
+log = spades-hc1neg1lane4.log
+error = spades-hc1neg1lane4.err
+output = spades-hc1neg1lane4.out
+
+request_memory = 200 GB
+request_disk = 175 GB
+
+request_cpus = 16
+
+transfer_input_files    = SPAdes-3.9.0-Linux.tgz, /mnt/gluster/sbpiper/top_read$
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+requirements            = (Target.HasGluster == true)
+
+Getenv                  = TRUE
+
+
+queue
+```
+Executable:
+```
+#!/bin/bash
+
+#untar SPAdes and data sets
+tar -xzf SPAdes-3.9.0-Linux.tgz
+tar -xzf top_reads.tgz
+
+cd SPAdes-3.9.0-Linux/bin/
+
+pwd
+
+#export PATH=$(pwd)/bin:$PATH
+
+./spades.py --pe1-1 ../../top_reads/hc-1-Neg_S2_L004_R1_001_clean.fq --pe1-2 ..$
+
+tar -czf hc1neg1lane4.tgz hc1neg1lane4
+cp hc1neg1lane4.tgz /mnt/gluster/sbpiper/
+
+exit
+```
