@@ -332,3 +332,6 @@ Getenv                  = TRUE
 
 queue
 ```
+## SUCCESS!
+* Might still need to allocate more disk space next time.
+* Downloaded from gluster to local computer
