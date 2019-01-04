@@ -387,5 +387,5 @@ Successful, download output: `
 
 
 
-# QUAST for hc1neg1lane2
+# QUAST for hc1neg1lane2 1/4/2018
 Script: `quast.py -k contigs.fasta`
