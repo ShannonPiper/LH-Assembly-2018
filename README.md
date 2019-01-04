@@ -384,3 +384,8 @@ cp hc1neg1lane4.tgz /mnt/gluster/sbpiper/
 exit
 ```
 Successful, download output: `
+
+
+
+# QUAST for hc1neg1lane2
+Script: `quast.py -k contigs.fasta`
