@@ -389,3 +389,13 @@ Successful, download output: `
 
 # QUAST for hc1neg1lane2 1/4/2018
 Script: `quast.py -k contigs.fasta`
+## for different kmers
+`quast.py -k /K21/final_contigs.fasta`
+`quast.py -k /K33/final_contigs.fasta`
+`quast.py -k /K55/final_contigs.fasta`
+`quast.py -k /K77/final_contigs.fasta`
+
+# Clean HC-5-Neg
+```
+for o in `cat hc5negR1.list`; do for l in `cat hc5negR2.list`; do for t in `cat t2.list`; do if [[ $o == Hancock-5-Neg_S3_"$t"_R1_001.fastq.gz ]] && [[ $l == Hancock-5-Neg_S3_"$t"_R2_001.fastq.gz ]]; then /home/groves/Desktop/bbmap/bbduk.sh -Xmx23g in1=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/Hancock_5_Neg/$o in2=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/Hancock_5_Neg/$l out1=/media/groves/Data/LH-Assembly/cleaned/hc-5-Neg_S3_"$t"_R1_001_clean.fq out2=/media/groves/Data/LH-Assembly/cleaned/hc-5-Neg_S3_"$t"_R2_001_clean.fq  minlen=25 qtrim=rl trimq=6 ktrim=r k=23 mink=11 hdist=1 tpe tbo;fi; done; done; done
+```
