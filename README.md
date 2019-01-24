@@ -390,10 +390,10 @@ Successful, download output: `
 # QUAST for hc1neg1lane2 1/4/2018
 Script: `quast.py -k contigs.fasta`
 ## for different kmers
-`quast.py -k /K21/final_contigs.fasta`
-`quast.py -k /K33/final_contigs.fasta`
-`quast.py -k /K55/final_contigs.fasta`
-`quast.py -k /K77/final_contigs.fasta`
+`quast.py -k K21/final_contigs.fasta`
+`quast.py -k K33/final_contigs.fasta`
+`quast.py -k K55/final_contigs.fasta`
+`quast.py -k K77/final_contigs.fasta`
 
 # Clean HC-5-Neg
 ```
