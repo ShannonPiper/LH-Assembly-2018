@@ -383,8 +383,8 @@ cp hc1neg1lane4.tgz /mnt/gluster/sbpiper/
 
 exit
 ```
-Successful, download output: 
-
+Script:
+`./spades.py --pe1-1 ../../top_reads/hc-1-Neg_S2_L004_R1_001_clean.fq --pe1-2 ../../top_reads/hc-1-Neg_S2_L004_R2_001_clean.fq -t 16 -k 21,33,55,77 -o hc1neg1lane4`
 
 
 # QUAST for hc1neg1lane2 1/4/2018
