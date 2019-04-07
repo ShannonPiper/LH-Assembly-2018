@@ -408,3 +408,14 @@ for o in `cat hc899negR1.list`; do for l in `cat hc899negR2.list`; do for t in `
 ```
 for o in `cat osu1negR1.list`; do for l in `cat osu1negR2.list`; do for t in `cat t2.list`; do if [[ $o == OSU-1-Neg_S7_"$t"_R1_001.fastq.gz ]] && [[ $l == OSU-1-Neg_S7_"$t"_R2_001.fastq.gz ]]; then /home/groves/Desktop/bbmap/bbduk.sh -Xmx23g in1=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/OSU-1-Neg/$o in2=/media/groves/Data/LH-Assembly/Raw/FASTQ-files/STEM_Capstone_Project_HiSeq-90587841/OSU-1-Neg/$l out1=/media/groves/Data/LH-Assembly/cleaned/OSU-1-Neg_S7_"$t"_R1_001_clean.fq out2=/media/groves/Data/LH-Assembly/cleaned/OSU-1-Neg_S7_"$t"_R2_001_clean.fq  minlen=25 qtrim=rl trimq=6 ktrim=r k=23 mink=11 hdist=1 tpe tbo;fi; done; done; done
 ```
+
+# Redundans
+
+https://www.ncbi.nlm.nih.gov/pubmed/27131372
+
+https://github.com/Gabaldonlab/redundans
+
+## Example with osu1neg:
+```
+./redundans.py -v -i /media/groves/8TB\ Seagate/Piper/LH-Assembly/cleaned/osu1neg/OSU-1-Neg_S7_L002_R1_001_clean.fq /media/groves/8TB\ Seagate/Piper/LH-Assembly/cleaned/osu1neg/OSU-1-Neg_S7_L002_R2_001_clean.fq -f /media/groves/8TB\ Seagate/Piper/LH-Assembly/spades-assembly-output/assemblies/osu1neg-spades/osu1neg_contigs.fasta -o osu1neg_redundans/osu1negred
+```
