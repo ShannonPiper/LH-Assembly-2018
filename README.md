@@ -419,3 +419,20 @@ https://github.com/Gabaldonlab/redundans
 ```
 ./redundans.py -v -i /media/groves/8TB\ Seagate/Piper/LH-Assembly/cleaned/osu1neg/OSU-1-Neg_S7_L002_R1_001_clean.fq /media/groves/8TB\ Seagate/Piper/LH-Assembly/cleaned/osu1neg/OSU-1-Neg_S7_L002_R2_001_clean.fq -f /media/groves/8TB\ Seagate/Piper/LH-Assembly/spades-assembly-output/assemblies/osu1neg-spades/osu1neg_contigs.fasta -o osu1neg_redundans/osu1negred
 ```
+
+
+## 10/23/2019
+# BUSCO
+https://busco.ezlab.org/
+
+Set path for Agustus:
+```
+export PATH="/home/groves/Augustus/bin:$PATH"
+export PATH="/home/groves/Augustus/scripts:$PATH"
+export AUGUSTUS_CONFIG_PATH="/home/groves/Augustus/config/"
+```
+
+Run BUSCO:
+```
+python3 scripts/run_BUSCO.py -i /mnt/md0/piper/LH-Assembly/wi5neg_contigs.fasta -o wi5neg_test -l insecta_odb9 -m geno
+```
