@@ -422,8 +422,11 @@ https://github.com/Gabaldonlab/redundans
 
 
 ## 10/23/2019
+
 # BUSCO
 https://busco.ezlab.org/
+
+Edit config file in BUSCO folder before running for that sample.
 
 Set path for Agustus:
 ```
