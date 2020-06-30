@@ -55,6 +55,7 @@ samtools mpileup -C50 -uf ../../redundans/hc1neg_redundans/hc1negred/hc1neg_scaf
 
 bcftools mpileup -C50 -f ../../redundans/hc1neg_redundans/hc1negred/hc1neg_scaffolds.filled.fa hc1neg_mapped_scaffs.sorted.bam -d 500 | bcftools call -c - | vcfutils.pl vcf2fq -d 10 -D 20 | gzip > hc1neg_scaffed_mapped.fq.gz
 
+# use gapcloses1.1.fa in place of scaffolds.filled due to linking issues...
 bcftools mpileup -C50 -f ../../redundans/hc1neg_redundans/hc1negred/hc1neg_gapcloser.1.1.fa hc1neg_mapped_scaffs.sorted.bam -d 500 | bcftools call -c - | vcfutils.pl vcf2fq -d 10 -D 20 | gzip > hc1neg_scaffed_mapped.fq.gz
 
 
