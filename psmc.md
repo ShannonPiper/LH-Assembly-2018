@@ -70,4 +70,4 @@ bcftools mpileup -C50 -f ../../redundans/hc1neg_redundans/hc1negred/hc1neg_gapcl
 ../psmc/psmc -p "4+25*2+4+6" -o hc1neg_scaffed_mapped.psmc hc1neg_scaffed_mapped.psmcfa
 
 ## plot with generation time of 2/year and mutation rate: drosophila 8.5E-09
-./psmc/utils/psmc_plot.pl -u 8.9e-09 -g 0.5 hc1neg_scaffed_mapped.5 hc1neg_scaffed_mapped.psmc
+../psmc/utils/psmc_plot.pl -u 8.9e-09 -g 0.5 hc1neg_scaffed_mapped.5 hc1neg_scaffed_mapped.psmc
